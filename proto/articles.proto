@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package proto;
+
+service Article {
+  rpc List (ListRequest) returns (ListReply) {}
+  rpc Detail (DetailRequest) returns (DetailReply) {}
+}
+
+message ListRequest {
+    string from = 1;
+    string to = 2;
+}
+
+message ListReply {
+    int64 id = 1;
+    string title = 2;
+    string description = 3;
+    string created_at = 4;
+}
+
+message DetailRequest {
+    int64 id = 1;
+}
+
+message DetailReply {
+    int64 id = 1;
+    string title = 2;
+    string body = 3;
+    string created_at = 4;
+}
